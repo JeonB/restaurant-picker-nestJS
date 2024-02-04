@@ -12,4 +12,8 @@ export class AppService {
   postData(): string {
     return "post data!";
   }
+
+  putData(): string {
+    return "put data!";
+  }
 }
