@@ -1,0 +1,31 @@
+@host = http://localhost:3000
+
+################################################ create new restaurant with category
+POST {{host}}/restaurants HTTP/1.1
+  content-type: application/json
+
+  {"key": "value"}
+
+################################################ create new restaurant with keyword
+POST {{host}}/restaurants/한식 HTTP/1.1
+  content-type: application/json
+
+  {"key": "value"}
+  
+################################################ get root
+GET {{host}} HTTP/1.1
+
+################################################ get restaurant list
+GET {{host}}/restaurants HTTP/1.1
+
+################################################ get restaurant
+GET {{host}}/restaurants/한식 HTTP/1.1
+
+################################################ update restaurant 
+PATCH {{host}}/restaurants/공간 HTTP/1.1
+  content-type: application/json
+
+  {"distance": "100"}
+
+################################################ delete restaurant
+DELETE {{host}}/restaurants/공간 HTTP/1.1

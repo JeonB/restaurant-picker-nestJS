@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@_decorators/*": ["src/decorators/*"],
+      "@_kakaoAPI/*": ["src/kakaoAPI/*"],
+      "@_middlewares/*": ["src/middlewares/*"],
+      "@_modules/*": ["src/modules/*"],
+      "@_spec/*": ["src/spec/*"],
+      "@_tests/*": ["src/tests/*"],
+      "@_types/*": ["src/types/*"]
+    }
+  },
+
+  "include": ["./src/**/*.ts", "./src/types/**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
