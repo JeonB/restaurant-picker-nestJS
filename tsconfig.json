@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES5",
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
+      "*": ["*"],
       "@_decorators/*": ["src/decorators/*"],
       "@_kakaoAPI/*": ["src/kakaoAPI/*"],
       "@_middlewares/*": ["src/middlewares/*"],
@@ -18,8 +21,5 @@
       "@_tests/*": ["src/tests/*"],
       "@_types/*": ["src/types/*"]
     }
-  },
-
-  "include": ["./src/**/*.ts", "./src/types/**/*.d.ts"],
-  "exclude": ["node_modules"]
+  }
 }
