@@ -2,30 +2,36 @@ stages:
   - build
   - deploy
 default:
-  tags: # default tag for gitlab runner in verda stg env.
+  tags: # default tag for gitlab runner
     - develop
 services:
   - docker:24.0.9-dind
 
 build-job:
   stage: build
-  tags:
-    - develop
   script:
-    - echo "Compiling the code..."
-    - echo "build"
-    - export PATCH_VERSION=1
+    - echo "Start build"
     - docker build -t back:latest -f $CI_PROJECT_DIR/packages/back/Dockerfile .
   only:
     - master
 
 deploy-job:
   stage: deploy
-  tags:
-    - develop
   script:
     - echo "Start deploy ..."
     - cd $CI_PROJECT_DIR/packages/back
     - docker-compose -f ./app.yml up -d
+  after_script:
+    - docker rmi $(docker images -f "dangling=true" -q) || true &
   only:
     - master
+
+variables:
+  TYPEORM_USERNAME: "$TYPEORM_USERNAME"
+  TYPEORM_PASSWORD: "$TYPEORM_PASSWORD"
+  TYPEORM_DATABASE: "$TYPEORM_DATABASE"
+  TYPEORM_URL: "$TYPEORM_URL"
+  TYPEORM_ENTITIES: "$TYPEORM_ENTITIES"
+  KAKAO_RESTAPI_KEY: "$KAKAO_RESTAPI_KEY"
+  KAKAO_JAVASCRIPT_KEY: "$KAKAO_JAVASCRIPT_KEY"
+  PRIVATE_TOKEN: "$PRIVATE_TOKEN"
