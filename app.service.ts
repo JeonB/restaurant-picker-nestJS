@@ -8,4 +8,8 @@ export class AppService {
   getHello(): string {
     return "Hello World!";
   }
+
+  postData(): string {
+    return "post data!";
+  }
 }
