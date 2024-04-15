@@ -1,6 +1,4 @@
 import { Module, Res } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 import { RestaurantController } from "restaurant.controller";
 import { RestaurantService } from "restaurant.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
@@ -20,7 +18,7 @@ import { Restaurant } from "@_modules/restaurant/entity";
     }),
     TypeOrmModule.forFeature([Restaurant]),
   ],
-  controllers: [AppController, RestaurantController],
-  providers: [AppService, RestaurantService],
+  controllers: [RestaurantController],
+  providers: [RestaurantService],
 })
 export class AppModule {}
