@@ -1,12 +1,8 @@
 import request from "supertest";
-// describe: 테스트 스위트, 관련 테스트 케이스들을 그룹화하여 실행하는 단위
 describe("음식점 데이터를 다루는 REST API", () => {
   it("GET /restaurants - 음식점 목록을 가져올 수 있어야 함", async () => {
-    // Given
-    // When
     const response = await request(app).get("/restaurants");
 
-    // Then
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
   });
